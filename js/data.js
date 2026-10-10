@@ -6,8 +6,8 @@
  * Atualizado com os dados reais da produção:
  * - Pagamento: 06/10/2026 (terça-feira)
  * - 1 kg de filamento Rosa Púrpura comprado (fornecedor tinha 1 unidade)
- * - Chegada do material: 08/10/2026 (ontem)
- * - 15 unidades já impressas e prontas hoje (09/10/2026)
+ * - Chegada do material: 08/10/2026 (quinta-feira)
+ * - 45 unidades já impressas e prontas hoje (10/10/2026)
  */
 
 window.PRODUCTION_CONFIG = {
@@ -24,7 +24,7 @@ window.PRODUCTION_CONFIG = {
   // Quantidades
   quantities: {
     total: 500,             // Total de chaveiros contratados
-    completed: 15,          // 15 unidades já produzidas e prontas!
+    completed: 45,          // 45 unidades já produzidas e prontas!
     batchSize: 100,         // Tamanho de cada lote de produção (5 lotes de 100)
   },
 
@@ -32,10 +32,10 @@ window.PRODUCTION_CONFIG = {
   dates: {
     orderCreated: "06/10/2026",          // Pagamento confirmado pela Lib (terça-feira)
     materialPurchased: "06/10/2026",     // Compra do 1º kg de filamento Rosa Púrpura
-    materialArrived: "08/10/2026",       // Chegada do filamento no ateliê (ontem)
+    materialArrived: "08/10/2026",       // Chegada do filamento no ateliê
     productionStarted: "08/10/2026",     // Início da produção e calibração
     estimatedDelivery: "Em andamento (lotes contínuos)", // Previsão
-    lastUpdated: "Hoje (09/10) às 23:45",// Data/hora da última atualização
+    lastUpdated: "Hoje (10/10) às 12:40",// Data/hora da última atualização
   },
 
   // Contato para Dúvidas (WhatsApp)
@@ -52,7 +52,7 @@ window.PRODUCTION_CONFIG = {
     { label: "Processo", value: "Impressão 3D de alta resolução e acabamento manual" },
     { label: "Matéria-Prima", value: "Filamento Premium PLA Rosa Púrpura" },
     { label: "Tonalidade", value: "Rosa Púrpura (Paleta Oficial Lib)" },
-    { label: "Estoque de Insumos", value: "1 kg em uso (15 prontos); aguardando reposição de mais bobinas pelo fornecedor" },
+    { label: "Estoque de Insumos", value: "1 kg em uso (45 prontos); aguardando reposição de mais bobinas pelo fornecedor" },
     { label: "Argola & Corrente", value: "Metal banho especial com argola reforçada" },
     { label: "Embalagem", value: "Tag individual personalizada Lib" }
   ],
@@ -86,8 +86,8 @@ window.PRODUCTION_CONFIG = {
     {
       id: "production",
       title: "Produção dos Chaveiros (1º Lote)",
-      description: "15 unidades já impressas, finalizadas e aprovadas! Produção do primeiro lote de 100 unidades em ritmo constante.",
-      date: "Em andamento (15 prontas)",
+      description: "45 unidades já impressas, finalizadas e aprovadas! Produção do primeiro lote de 100 unidades em ritmo constante.",
+      date: "Em andamento (45 prontas)",
       status: "in_progress",
       icon: "flame"
     },
@@ -112,13 +112,19 @@ window.PRODUCTION_CONFIG = {
   // Diário de Bordo da Produção
   updates: [
     {
-      date: "09/10/2026 - Hoje",
+      date: "10/10/2026 - Hoje",
+      title: "45 unidades produzidas com sucesso!",
+      content: "Produção em ritmo acelerado: atingimos a marca de 45 chaveiros impressos, inspecionados e aprovados com acabamento de alta qualidade. Seguimos avançando no Lote 01.",
+      badge: "Produção"
+    },
+    {
+      date: "09/10/2026 - Ontem",
       title: "Primeiras 15 unidades produzidas com sucesso!",
       content: "As 15 primeiras peças foram impressas e inspecionadas. A cor Rosa Púrpura atingiu exata harmonia com a identidade visual da Lib e o acabamento ficou impecável. Seguimos produzindo o Lote 01 e monitorando a chegada de mais filamento no fornecedor.",
       badge: "Produção"
     },
     {
-      date: "08/10/2026 - Ontem",
+      date: "08/10/2026 - Quinta-feira",
       title: "Filamento Rosa Púrpura chegou ao ateliê",
       content: "Recebemos o primeiro rolo de 1 kg de filamento Rosa Púrpura. Realizamos os testes de calibração de camada e as primeiras matrizes de teste foram 100% aprovadas.",
       badge: "Logística"
