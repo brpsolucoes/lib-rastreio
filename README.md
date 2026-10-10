@@ -44,10 +44,6 @@ O design foi concebido com base na identidade oficial da **Lib** ([uselib.com.br
    - Botão para copiar o link com um clique.
    - Botão para imprimir / salvar em PDF com estilos específicos para impressão limpa.
 
-7. **Painel de Atualização Rápida (Editor Local)**:
-   - Pressione o botão **"⚙️ Atualizar Status"** no rodapé (ou use o atalho `Ctrl+E` no teclado).
-   - Permite ajustar a quantidade preenchida, datas e status na hora, com opção de pré-visualizar ao vivo e copiar o código para colar no `js/data.js`.
-
 ---
 
 ## 🛠️ Como Atualizar os Dados da Produção

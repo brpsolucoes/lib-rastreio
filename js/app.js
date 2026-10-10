@@ -26,7 +26,7 @@
       }
     }
 
-    // Suporte a parâmetros na URL (Ex: ?completed=15&total=500)
+    // Suporte opcional a parâmetros na URL para testes (Ex: ?completed=15&total=500)
     if (urlParams.has('completed')) {
       const q = parseInt(urlParams.get('completed'), 10);
       if (!isNaN(q)) {
@@ -40,9 +40,6 @@
         base.quantities = base.quantities || {};
         base.quantities.total = t;
       }
-    }
-    if (urlParams.has('admin')) {
-      setTimeout(() => openAdminModal(), 500);
     }
 
     return base;
@@ -356,12 +353,6 @@
         window.print();
       };
     });
-
-    // Gatilho do Modal Admin
-    const adminTrigger = document.getElementById('open-admin-btn');
-    if (adminTrigger) {
-      adminTrigger.onclick = () => openAdminModal();
-    }
   }
 
   // Toast notification
@@ -380,107 +371,9 @@
     }, 3500);
   }
 
-  // ==========================================================================
-  // MODAL DE ADMINISTRAÇÃO & ATUALIZAÇÃO RÁPIDA (PARA O BRUNO)
-  // ==========================================================================
-  function openAdminModal() {
-    const modal = document.getElementById('admin-modal');
-    if (!modal) return;
-
-    // Preencher campos com o estado atual
-    document.getElementById('input-completed').value = state.quantities.completed || 0;
-    document.getElementById('input-total').value = state.quantities.total || 500;
-    document.getElementById('input-material-purchased').value = state.dates.materialPurchased || '';
-    document.getElementById('input-material-arrived').value = state.dates.materialArrived || '';
-    document.getElementById('input-estimated-delivery').value = state.dates.estimatedDelivery || '';
-    document.getElementById('input-whatsapp').value = state.contact.whatsappNumber || '';
-    document.getElementById('input-last-update').value = state.dates.lastUpdated || '';
-
-    modal.classList.add('active');
-  }
-
-  function closeAdminModal() {
-    const modal = document.getElementById('admin-modal');
-    if (modal) modal.classList.remove('active');
-  }
-
-  function saveAdminModal() {
-    const completed = parseInt(document.getElementById('input-completed').value, 10) || 0;
-    const total = parseInt(document.getElementById('input-total').value, 10) || 500;
-    const materialPurchased = document.getElementById('input-material-purchased').value.trim();
-    const materialArrived = document.getElementById('input-material-arrived').value.trim();
-    const estimatedDelivery = document.getElementById('input-estimated-delivery').value.trim();
-    const whatsapp = document.getElementById('input-whatsapp').value.trim();
-    const lastUpdate = document.getElementById('input-last-update').value.trim() || 'Hoje às ' + new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
-
-    // Atualiza estado em memória
-    state.quantities.completed = completed;
-    state.quantities.total = total;
-    state.dates.materialPurchased = materialPurchased;
-    state.dates.materialArrived = materialArrived;
-    state.dates.estimatedDelivery = estimatedDelivery;
-    state.dates.lastUpdated = lastUpdate;
-    if (whatsapp) state.contact.whatsappNumber = whatsapp;
-
-    // Salva no LocalStorage para testes no navegador
-    localStorage.setItem('LIB_PRODUCTION_CUSTOM_DATA', JSON.stringify(state));
-
-    closeAdminModal();
-    renderDashboard();
-    showToast('Status atualizado com sucesso no seu navegador!');
-  }
-
-  function copyCodeSnippet() {
-    const completed = parseInt(document.getElementById('input-completed').value, 10) || 0;
-    const materialPurchased = document.getElementById('input-material-purchased').value.trim();
-    const materialArrived = document.getElementById('input-material-arrived').value.trim();
-    const estimatedDelivery = document.getElementById('input-estimated-delivery').value.trim();
-
-    const snippet = `// No arquivo js/data.js, atualize:\ncompleted: ${completed},\nmaterialPurchased: "${materialPurchased}",\nmaterialArrived: "${materialArrived}",\nestimatedDelivery: "${estimatedDelivery}"`;
-
-    navigator.clipboard.writeText(snippet).then(() => {
-      showToast('Código copiado! Cole no seu arquivo js/data.js.');
-    });
-  }
-
-  function resetToDefault() {
-    localStorage.removeItem('LIB_PRODUCTION_CUSTOM_DATA');
-    window.location.reload();
-  }
-
-  // Tecla de atalho: Ctrl+E ou Cmd+E abre o editor
-  document.addEventListener('keydown', (e) => {
-    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'e') {
-      e.preventDefault();
-      openAdminModal();
-    }
-  });
-
-  // Event Listeners do Modal
+  // Inicialização no carregamento da página
   document.addEventListener('DOMContentLoaded', () => {
     renderDashboard();
-
-    const closeBtn = document.getElementById('modal-close-btn');
-    if (closeBtn) closeBtn.onclick = closeAdminModal;
-
-    const cancelBtn = document.getElementById('modal-cancel-btn');
-    if (cancelBtn) cancelBtn.onclick = closeAdminModal;
-
-    const saveBtn = document.getElementById('modal-save-btn');
-    if (saveBtn) saveBtn.onclick = saveAdminModal;
-
-    const copyBtn = document.getElementById('modal-copy-btn');
-    if (copyBtn) copyBtn.onclick = copyCodeSnippet;
-
-    const resetBtn = document.getElementById('modal-reset-btn');
-    if (resetBtn) resetBtn.onclick = resetToDefault;
-
-    const overlay = document.getElementById('admin-modal');
-    if (overlay) {
-      overlay.onclick = (e) => {
-        if (e.target === overlay) closeAdminModal();
-      };
-    }
   });
 
 })();
