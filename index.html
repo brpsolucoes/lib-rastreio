@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Status de Produção • Lib | 500 Chaveiros Personalizados</title>
+  
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="assets/favicon.png" type="image/png">
+
+  <!-- Meta Tags para Compartilhamento (WhatsApp, LinkedIn, Slack) -->
+  <meta property="og:title" content="Acompanhamento de Produção • Lib">
+  <meta property="og:description" content="Acompanhe em tempo real a linha de produção dos 500 chaveiros personalizados exclusivos da Lib.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/logo-lib-roxo.png">
+  <meta name="theme-color" content="#f489a4">
+
+  <!-- Google Fonts: Montserrat (Tipografia Oficial da Lib) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+
+  <!-- Estilos Customizados -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ====================================================================
+       CABEÇALHO / NAVBAR FIXA
+       ==================================================================== -->
+  <header class="site-header">
+    <div class="container">
+      <div class="nav-wrapper">
+        <div class="brand-area">
+          <img src="assets/logo-lib-roxo.png" alt="Logo Lib" class="brand-logo-img" onerror="this.src='assets/logo-lib.png'">
+          <div class="brand-divider"></div>
+          <span class="brand-badge">
+            <span class="live-pulse-dot"></span>
+            Linha de Produção
+          </span>
+        </div>
+
+        <div class="header-actions">
+          <button class="btn-icon-subtle btn-share-link" title="Copiar link da página">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+            </svg>
+            <span>Compartilhar</span>
+          </button>
+          
+          <a href="#" class="btn-icon-subtle btn-whatsapp-header btn-whatsapp-action" title="Falar via WhatsApp">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+            </svg>
+            <span>WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ====================================================================
+         HERO / VISÃO GERAL DO PEDIDO
+         ==================================================================== -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-header-card">
+          <div class="hero-top-row">
+            <span class="order-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+              </svg>
+              Pedido Especial • <span class="order-code-display">LIB-500</span>
+            </span>
+
+            <span class="last-update-tag" id="last-updated-text">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              Atualizando...
+            </span>
+          </div>
+
+          <h1 class="hero-title">Acompanhamento de Produção • Lib</h1>
+          <p class="hero-subtitle">
+            Ambiente exclusivo para a equipe da <strong>Lib</strong> monitorar em tempo real cada detalhe da confecção dos <strong>500 chaveiros personalizados</strong>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         BARRA DE PROGRESSO PRINCIPAL & DESTAQUES
+         ==================================================================== -->
+    <section class="progress-section">
+      <div class="container">
+        
+        <div class="progress-card">
+          <div class="progress-header-flex">
+            <div class="progress-label-group">
+              <span class="progress-pretitle">Progresso Geral da Confecção</span>
+              <h2 class="progress-main-title">Status de Preenchimento dos Chaveiros</h2>
+            </div>
+
+            <div class="progress-stat-big">
+              <span class="progress-percentage" id="progress-percentage-num">0</span>
+              <span class="progress-percentage-symbol">%</span>
+              <span class="progress-count-sub" id="progress-completed-ratio">(0 de 500 chaveiros)</span>
+            </div>
+          </div>
+
+          <!-- Barra de Progresso com Shimmer -->
+          <div class="progress-bar-container">
+            <div class="progress-bar-fill" id="main-progress-bar-fill"></div>
+          </div>
+
+          <!-- Marcos de Porcentagem -->
+          <div class="progress-milestones">
+            <span>0% <span class="milestone-label">Início</span></span>
+            <span>25% <span class="milestone-label">Lote 1 & 2</span></span>
+            <span>50% <span class="milestone-label">Metade</span></span>
+            <span>75% <span class="milestone-label">Quase lá</span></span>
+            <span>100% <span class="milestone-label">Pronto</span></span>
+          </div>
+
+          <!-- Mensagem da Etapa Atual -->
+          <div class="progress-active-message">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+            <span id="progress-active-msg-text">Carregando status de produção...</span>
+          </div>
+        </div>
+
+        <!-- ====================================================================
+             CARDS DE MÉTRICAS PRINCIPAIS (MATERIAL COMPRADO, CHEGADA, QUANTIDADE)
+             ==================================================================== -->
+        <div class="metrics-grid">
+          
+          <!-- Total do Pedido -->
+          <div class="metric-card">
+            <div class="metric-header">
+              <div class="metric-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                  <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                </svg>
+              </div>
+              <span class="metric-badge done">Confirmado</span>
+            </div>
+            <span class="metric-title">Quantidade Total</span>
+            <span class="metric-value" id="metric-total-val">500</span>
+            <span class="metric-subtext">Chaveiros contratados</span>
+          </div>
+
+          <!-- Compra do Material -->
+          <div class="metric-card">
+            <div class="metric-header">
+              <div class="metric-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+              </div>
+              <span class="metric-badge done">Realizada</span>
+            </div>
+            <span class="metric-title">Material Comprado</span>
+            <span class="metric-value" style="font-size: 1.3rem;" id="metric-purchased-date">--/--/----</span>
+            <span class="metric-subtext">Filamento Rosa Púrpura (1 kg)</span>
+          </div>
+
+          <!-- Chegada do Material -->
+          <div class="metric-card">
+            <div class="metric-header">
+              <div class="metric-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16.5 9.4 7.55 4.24a1.78 1.78 0 0 0-1.8 0l-3.3 1.9A1.78 1.78 0 0 0 1.5 7.7v8.6a1.78 1.78 0 0 0 .95 1.56l3.3 1.9a1.78 1.78 0 0 0 1.8 0l8.95-5.16a1.78 1.78 0 0 0 .95-1.56V9.4z"></path>
+                  <polyline points="3.29 7 12 12.01 20.71 7"></polyline>
+                  <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                  <polyline points="16 16 18 18 22 13"></polyline>
+                </svg>
+              </div>
+              <span class="metric-badge done">Entregue</span>
+            </div>
+            <span class="metric-title">Chegada no Ateliê</span>
+            <span class="metric-value" style="font-size: 1.3rem;" id="metric-arrived-date">--/--/----</span>
+            <span class="metric-subtext">Conferência 100% aprovada</span>
+          </div>
+
+          <!-- Preenchidos -->
+          <div class="metric-card">
+            <div class="metric-header">
+              <div class="metric-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3.5z"></path>
+                </svg>
+              </div>
+              <span class="metric-badge active">Em Andamento</span>
+            </div>
+            <span class="metric-title">Já Preenchidos</span>
+            <span class="metric-value" id="metric-completed-val">0</span>
+            <span class="metric-subtext">Peças impressas e prontas</span>
+          </div>
+
+          <!-- Restantes -->
+          <div class="metric-card">
+            <div class="metric-header">
+              <div class="metric-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+              <span class="metric-badge pending">Faltam</span>
+            </div>
+            <span class="metric-title">A Preencher</span>
+            <span class="metric-value" id="metric-remaining-val">0</span>
+            <span class="metric-subtext">Próximos lotes da fila</span>
+          </div>
+
+          <!-- Previsão de Entrega -->
+          <div class="metric-card">
+            <div class="metric-header">
+              <div class="metric-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="1" y="3" width="15" height="13"></rect>
+                  <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                  <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                  <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                </svg>
+              </div>
+              <span class="metric-badge active">Cronograma</span>
+            </div>
+            <span class="metric-title">Previsão de Envio</span>
+            <span class="metric-value" style="font-size: 1.28rem;" id="metric-delivery-val">--/--/----</span>
+            <span class="metric-subtext">Despacho para a Lib</span>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         ACOMPANHAMENTO DOS LOTES DE PRODUÇÃO (BATCHES)
+         ==================================================================== -->
+    <section class="section-block">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-pretitle">Divisão Operacional</span>
+          <h2 class="section-title">Status dos Lotes de Produção</h2>
+          <p class="section-desc">A produção dos 500 chaveiros foi organizada em 5 lotes de 100 unidades para garantir acabamento e padronização rigorosa.</p>
+        </div>
+
+        <div class="batches-grid" id="batches-container">
+          <!-- Renderizado dinamicamente via app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         LINHA DO TEMPO DA PRODUÇÃO (TIMELINE COMPLETA)
+         ==================================================================== -->
+    <section class="section-block">
+      <div class="container">
+        <div class="timeline-card">
+          <div class="section-header" style="margin-bottom: 2rem;">
+            <span class="section-pretitle">Rastreabilidade Passo a Passo</span>
+            <h2 class="section-title">Linha do Tempo do Pedido</h2>
+            <p class="section-desc">Desde a compra dos materiais até o envio final para o endereço da Lib.</p>
+          </div>
+
+          <div class="timeline-list" id="timeline-container">
+            <!-- Renderizado dinamicamente via app.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         FEED DE ATUALIZAÇÕES & FICHA TÉCNICA
+         ==================================================================== -->
+    <section class="section-block">
+      <div class="container">
+        <div class="two-column-grid">
+          
+          <!-- Diário de Bordo / Atualizações Recentes -->
+          <div class="panel-card">
+            <div class="panel-header">
+              <h3 class="panel-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                  <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+                Diário de Bordo da Produção
+              </h3>
+            </div>
+
+            <div class="updates-feed" id="updates-feed-container">
+              <!-- Renderizado dinamicamente via app.js -->
+            </div>
+          </div>
+
+          <!-- Ficha Técnica do Produto -->
+          <div class="panel-card">
+            <div class="panel-header">
+              <h3 class="panel-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                  <polyline points="2 17 12 22 22 17"></polyline>
+                  <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+                Especificações do Pedido
+              </h3>
+            </div>
+
+            <div class="specs-list" id="specs-container">
+              <!-- Renderizado dinamicamente via app.js -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         CONTATO DIRETO & SUPORTE VIA WHATSAPP
+         ==================================================================== -->
+    <section class="section-block">
+      <div class="container">
+        <div class="support-banner-card">
+          <div class="support-info">
+            <h3>Dúvidas ou alinhamento com a produção?</h3>
+            <p>Estamos à disposição da equipe Lib para esclarecer prazos, enviar fotos adicionais de lotes em processo de cura ou alinhar detalhes da expedição.</p>
+          </div>
+
+          <a href="#" class="btn-whatsapp-cta btn-whatsapp-action">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+            </svg>
+            <span>Falar com o Produtor</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====================================================================
+       RODAPÉ
+       ==================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <img src="assets/logo-lib-roxo.png" alt="Lib" style="height: 22px; width: auto;" onerror="this.src='assets/logo-lib.png'">
+          <span>• Acompanhamento Exclusivo de Produção (500 Chaveiros)</span>
+        </div>
+
+        <div class="footer-actions">
+          <button class="btn-icon-subtle btn-print-page" title="Imprimir ou salvar PDF">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 6 2 18 2 18 9"></polyline>
+              <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+              <rect x="6" y="14" width="12" height="8"></rect>
+            </svg>
+            <span>Salvar PDF</span>
+          </button>
+
+          <!-- Botão para o Bruno atualizar o status rapidamente -->
+          <button class="btn-admin-trigger" id="open-admin-btn" title="Atualizar dados de produção (Atalho: Ctrl+E)">
+            ⚙️ Atualizar Status
+          </button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ====================================================================
+       MODAL DE ATUALIZAÇÃO RÁPIDA (PAINEL DO BRUNO)
+       ==================================================================== -->
+  <div class="modal-overlay" id="admin-modal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h4 class="modal-title">⚙️ Atualizar Status da Produção</h4>
+        <button class="modal-close-btn" id="modal-close-btn">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <p style="font-size: 0.85rem; color: var(--color-text-muted);">
+          Altere os valores abaixo para atualizar o site em tempo real no seu navegador ou copie o código para salvar permanentemente no arquivo <code>js/data.js</code>.
+        </p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="input-completed">Chaveiros Preenchidos</label>
+            <input type="number" id="input-completed" class="form-input" min="0" max="500">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="input-total">Total Contratado</label>
+            <input type="number" id="input-total" class="form-input" min="1" value="500">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="input-material-purchased">Data Compra do Material</label>
+            <input type="text" id="input-material-purchased" class="form-input" placeholder="ex: 28/09/2026">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="input-material-arrived">Data Chegada do Material</label>
+            <input type="text" id="input-material-arrived" class="form-input" placeholder="ex: 04/10/2026">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="input-estimated-delivery">Previsão de Envio</label>
+            <input type="text" id="input-estimated-delivery" class="form-input" placeholder="ex: 18/10/2026">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="input-last-update">Texto de Atualização</label>
+            <input type="text" id="input-last-update" class="form-input" placeholder="ex: Hoje às 18:30">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="input-whatsapp">WhatsApp para Contato (com DDI e DDD)</label>
+          <input type="text" id="input-whatsapp" class="form-input" placeholder="ex: 5511999998888">
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn-secondary" id="modal-reset-btn" style="margin-right: auto;">Restaurar Padrão</button>
+        <button class="btn-secondary" id="modal-copy-btn">Copiar Código (data.js)</button>
+        <button class="btn-secondary" id="modal-cancel-btn">Cancelar</button>
+        <button class="btn-primary" id="modal-save-btn">Salvar & Ver ao Vivo</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
