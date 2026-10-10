@@ -324,7 +324,7 @@
   function setupActionButtons() {
     // WhatsApp CTA
     const whatsappLinks = document.querySelectorAll('.btn-whatsapp-action');
-    const phone = (state.contact.whatsappNumber || '5511999999999').replace(/\D/g, '');
+    const phone = (state.contact.whatsappNumber || '5511937183232').replace(/\D/g, '');
     const msg = encodeURIComponent(state.contact.customMessage || 'Olá! Gostaria de acompanhar o pedido dos 500 chaveiros da Lib.');
     const whatsappUrl = `https://wa.me/${phone}?text=${msg}`;
 

@@ -40,7 +40,7 @@ window.PRODUCTION_CONFIG = {
 
   // Contato para Dúvidas (WhatsApp)
   contact: {
-    whatsappNumber: "5511999999999", // Altere para o seu número WhatsApp com DDD se desejar
+    whatsappNumber: "5511937183232", // WhatsApp oficial de acompanhamento
     responsibleName: "Bruno",
     customMessage: "Olá! Gostaria de acompanhar a produção dos 500 chaveiros da Lib (#LIB-500)."
   },
