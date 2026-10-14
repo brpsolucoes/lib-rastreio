@@ -359,15 +359,6 @@
         });
       };
     });
-
-    // Imprimir / Salvar PDF
-    const printBtns = document.querySelectorAll('.btn-print-page');
-    printBtns.forEach(btn => {
-      btn.onclick = (e) => {
-        e.preventDefault();
-        window.print();
-      };
-    });
   }
 
   // Toast notification

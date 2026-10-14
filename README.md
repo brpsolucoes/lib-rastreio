@@ -42,7 +42,6 @@ O design foi concebido com base na identidade oficial da **Lib** ([uselib.com.br
 6. **Canal de Contato Rápido & Compartilhamento**:
    - Botão direto para WhatsApp com mensagem pré-configurada para alinhamentos com a produção.
    - Botão para copiar o link com um clique.
-   - Botão para imprimir / salvar em PDF com estilos específicos para impressão limpa.
 
 ---
 
