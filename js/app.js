@@ -115,10 +115,15 @@
     // Mensagem dinâmica da etapa atual
     const activeMsgEl = document.getElementById('progress-active-msg-text');
     if (activeMsgEl) {
-      if (percentage >= 100) {
+      if (state.activeMessage) {
+        activeMsgEl.textContent = state.activeMessage;
+      } else if (percentage >= 100) {
         activeMsgEl.textContent = '🎉 Todos os 500 chaveiros foram concluídos e estão prontos para envio!';
       } else {
-        activeMsgEl.textContent = `✨ Produção ativa: ${completed} chaveiros prontos do 1º lote (${completed}/100). Filamento Rosa Púrpura calibrado e com acabamento impecável!`;
+        const batchSize = state.quantities.batchSize || 100;
+        const currentBatch = Math.min(Math.floor(completed / batchSize) + 1, Math.ceil(total / batchSize));
+        const currentBatchProgress = completed % batchSize === 0 && completed > 0 ? batchSize : (completed % batchSize);
+        activeMsgEl.textContent = `✨ Produção ativa: ${completed} chaveiros prontos para embalar! Lote 01 finalizado e Lote 0${currentBatch} em andamento (${currentBatchProgress}/${batchSize}). Filamento oficial Rosa Púrpura no ateliê!`;
       }
     }
 
@@ -139,8 +144,18 @@
     const metricPurchasedDateEl = document.getElementById('metric-purchased-date');
     if (metricPurchasedDateEl) metricPurchasedDateEl.textContent = state.dates.materialPurchased;
 
+    const metricPurchasedSubtextEl = document.getElementById('metric-purchased-subtext');
+    if (metricPurchasedSubtextEl && state.dates.materialPurchasedSubtext) {
+      metricPurchasedSubtextEl.textContent = state.dates.materialPurchasedSubtext;
+    }
+
     const metricArrivedDateEl = document.getElementById('metric-arrived-date');
     if (metricArrivedDateEl) metricArrivedDateEl.textContent = state.dates.materialArrived;
+
+    const metricArrivedSubtextEl = document.getElementById('metric-arrived-subtext');
+    if (metricArrivedSubtextEl && state.dates.materialArrivedSubtext) {
+      metricArrivedSubtextEl.textContent = state.dates.materialArrivedSubtext;
+    }
 
     // 4. Lotes de Produção (Batches Breakdown)
     renderBatches(total, completed);
