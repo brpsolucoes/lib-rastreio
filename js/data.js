@@ -6,7 +6,7 @@
  * Atualizado com os dados reais da produção:
  * - Pagamento: 06/10/2026 (terça-feira)
  * - Restante do filamento Rosa Púrpura comprado e recebido no ateliê (100% dos insumos disponíveis)
- * - 120 unidades produzidas e prontas para embalar (14/10/2026)
+ * - 180 unidades produzidas e prontas para embalar (20/10/2026)
  */
 
 window.PRODUCTION_CONFIG = {
@@ -23,7 +23,7 @@ window.PRODUCTION_CONFIG = {
   // Quantidades
   quantities: {
     total: 500,             // Total de chaveiros contratados
-    completed: 120,         // 120 unidades já produzidas e prontas para embalar!
+    completed: 180,         // 180 unidades já produzidas e prontas para embalar!
     batchSize: 100,         // Tamanho de cada lote de produção (5 lotes de 100)
   },
 
@@ -36,11 +36,11 @@ window.PRODUCTION_CONFIG = {
     materialArrivedSubtext: "100% dos insumos no ateliê",
     productionStarted: "08/10/2026",     // Início da produção e calibração
     estimatedDelivery: "Em andamento (lotes contínuos)", // Previsão
-    lastUpdated: "Hoje (14/10) às 09:30",// Data/hora da última atualização
+    lastUpdated: "Hoje (20/10) às 23:08",// Data/hora da última atualização
   },
 
   // Mensagem personalizada para o destaque principal (opcional, calculada automaticamente se omitida)
-  activeMessage: "✨ Produção ativa: 120 chaveiros prontos para embalar! Lote 01 finalizado e Lote 02 em andamento. Restante do filamento já recebido no ateliê!",
+  activeMessage: "✨ Produção ativa: 180 chaveiros prontos para embalar! Lote 01 finalizado e Lote 02 em andamento (80/100). Filamento 100% disponível no ateliê!",
 
   // Contato para Dúvidas (WhatsApp)
   contact: {
@@ -56,7 +56,7 @@ window.PRODUCTION_CONFIG = {
     { label: "Processo", value: "Impressão 3D de alta resolução e acabamento manual" },
     { label: "Matéria-Prima", value: "Filamento Premium PLA Rosa Púrpura" },
     { label: "Tonalidade", value: "Rosa Púrpura (Paleta Oficial Lib)" },
-    { label: "Estoque de Insumos", value: "100% disponível no ateliê (todo o filamento recebido; 120 peças prontas para embalar)" },
+    { label: "Estoque de Insumos", value: "100% disponível no ateliê (todo o filamento recebido; 180 peças prontas para embalar)" },
     { label: "Argola & Corrente", value: "Metal banho especial com argola reforçada" },
     { label: "Embalagem", value: "Tag individual personalizada Lib" }
   ],
@@ -90,16 +90,16 @@ window.PRODUCTION_CONFIG = {
     {
       id: "production",
       title: "Produção dos Chaveiros (Lote 01 Concluído • Lote 02 em Andamento)",
-      description: "120 unidades já impressas, finalizadas e prontas para embalar! Lote 01 (100 unidades) 100% concluído e Lote 02 iniciado com 20 unidades prontas.",
-      date: "Em andamento (120 prontas)",
+      description: "180 unidades já impressas, finalizadas e prontas para embalar! Lote 01 (100 unidades) 100% concluído e Lote 02 com 80 unidades prontas.",
+      date: "Em andamento (180 prontas)",
       status: "in_progress",
       icon: "flame"
     },
     {
       id: "quality_packaging",
       title: "Controle de Qualidade & Embalagem",
-      description: "Inspeção visual unitária de cada chaveiro, remoção de suportes, polimento e fixação das tags Lib (120 peças já aguardando esta etapa).",
-      date: "Próxima etapa (120 prontas)",
+      description: "Inspeção visual unitária de cada chaveiro, remoção de suportes, polimento e fixação das tags Lib (180 peças já aguardando esta etapa).",
+      date: "Próxima etapa (180 prontas)",
       status: "pending",
       icon: "shield-check"
     },
@@ -116,7 +116,13 @@ window.PRODUCTION_CONFIG = {
   // Diário de Bordo da Produção
   updates: [
     {
-      date: "14/10/2026 - Hoje",
+      date: "20/10/2026 - Hoje",
+      title: "180 chaveiros prontos para embalar!",
+      content: "Mais 60 chaveiros produzidos desde a última atualização, totalizando 180 unidades impressas, finalizadas e prontas para embalar. O Lote 01 (100 unidades) segue concluído e o Lote 02 já conta com 80 unidades prontas, faltando apenas 20 para fechar o lote.",
+      badge: "Produção"
+    },
+    {
+      date: "14/10/2026 - Quarta-feira",
       title: "120 chaveiros prontos e restante do filamento entregue!",
       content: "Alcançamos a marca de 120 chaveiros produzidos com acabamento impecável e 100% prontos para embalar! O Lote 01 (100 unidades) foi concluído com sucesso e o Lote 02 já conta com 20 unidades prontas. Além disso, todo o restante do filamento Rosa Púrpura comprado já chegou ao ateliê, garantindo 100% da matéria-prima necessária para a conclusão dos 500 chaveiros sem interrupções.",
       badge: "Produção & Insumos"
